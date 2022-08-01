@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import styles from './CheckboxInput.module.scss';
+import './CheckboxInput.scss';
 interface IProps {
   id: string | number;
   label: string;
@@ -12,10 +12,10 @@ const CheckboxInput = ({ id, label, checked, disabled, onChange }: IProps) => {
   const changeIdToString = useMemo(() => (typeof id === 'string' ? id : id.toString()), [id]);
 
   return (
-    <div className={styles.CheckboxInput}>
-      <label className={styles.CheckboxInput__label} htmlFor={changeIdToString}>
+    <div className="checkbox-input">
+      <label className="checkbox-input__label" htmlFor={changeIdToString}>
         <input
-          className={styles.CheckboxInput__input}
+          className="checkbox-input__input"
           id={changeIdToString}
           type="checkbox"
           name={changeIdToString}
@@ -23,7 +23,7 @@ const CheckboxInput = ({ id, label, checked, disabled, onChange }: IProps) => {
           disabled={disabled}
           onChange={onChange}
         />
-        <span className={styles.CheckboxInput__text} data-content={label}>
+        <span className="checkbox-input__text" data-content={label}>
           {label}
         </span>
       </label>

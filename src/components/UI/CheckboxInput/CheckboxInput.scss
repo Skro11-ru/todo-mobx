@@ -4,7 +4,7 @@ $gray: #bdc1c6;
 $white: #fff;
 $green: #06842c;
 
-.CheckboxInput {
+.checkbox-input {
   &__label {
     display: flex;
     align-items: center;
@@ -12,6 +12,7 @@ $green: #06842c;
   &__input {
     position: relative;
     width: 20px;
+    min-width: 20px;
     height: 20px;
     color: $black;
     border: 1px solid $gray;
@@ -20,7 +21,7 @@ $green: #06842c;
     outline: 0;
     cursor: pointer;
     transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
-    margin: 3px;
+    margin-right: 5px;
     &_circle {
       border-radius: 50%;
     }
@@ -73,7 +74,7 @@ $green: #06842c;
   &__text {
     position: relative;
     cursor: pointer;
-    padding: 0 5px 0;
+    //padding: 0 5px 0;
     user-select: none;
     &::before {
       position: absolute;
