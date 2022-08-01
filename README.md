@@ -1,4 +1,8 @@
-# Тестовое задание "React-mobx"
+# Тестовое задание "ToDo-react-mobx"
+
+### Результат выполнения:
+
+> [Просмотр](https://todo-react-mobx-test.netlify.app/)
 
 ### Техническое задание:
 
