@@ -1,0 +1,10 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
+.select {
+  border-radius: 5px;
+  padding: 4px;
+  @include font-text('desktop');
+  @media (max-width: $md) {
+    @include font-text('mobile');
+  }
+}
