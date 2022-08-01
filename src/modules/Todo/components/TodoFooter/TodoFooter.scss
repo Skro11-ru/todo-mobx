@@ -1,0 +1,21 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0;
+  color: #76767a;
+  border-top: 1px dotted rgba($color-primary, 0.5);
+  transition: all 0.3s linear;
+  @media (max-width: $xxs) {
+    flex-direction: column-reverse;
+  }
+  &__count-remaining-tasks {
+    @media (max-width: $xxs) {
+      margin-top: 5px;
+    }
+  }
+}

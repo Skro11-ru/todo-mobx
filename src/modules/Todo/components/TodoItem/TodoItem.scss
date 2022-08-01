@@ -1,0 +1,24 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
+.todo-list {
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px dotted rgba($color-primary, 0.5);
+    padding: 15px 10px;
+    span {
+      word-break: break-word;
+    }
+    &:hover {
+      .todo-list__button-delete {
+        opacity: 1;
+      }
+    }
+  }
+  &__button-delete {
+    transition: 0.3s linear;
+    min-width: 25px;
+    opacity: 0;
+  }
+}

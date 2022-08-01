@@ -1,0 +1,23 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
+.todo-view {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  @media (max-width: $xxs) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+  &__container {
+    @include shadow();
+    @media (max-width: $xxs) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      overflow-y: auto;
+    }
+  }
+}

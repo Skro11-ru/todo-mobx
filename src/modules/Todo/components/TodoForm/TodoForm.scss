@@ -1,0 +1,43 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
+.todo-form {
+  &__title {
+    @include font-title('desktop');
+    text-shadow: 0 0 2px #000;
+    @media (max-width: $md) {
+      @include font-title('mobile');
+    }
+  }
+  &__input-container {
+    position: relative;
+    margin-bottom: 10px;
+    .button-svg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 20px;
+      margin: auto;
+    }
+  }
+  &__input {
+    width: 100%;
+    padding: 15px 50px 15px 15px;
+    margin: 5px 0;
+    color: $color-primary;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    @include transition;
+    @include shadow;
+
+    &::placeholder {
+      color: $color-primary;
+      opacity: 0.4;
+    }
+
+    &:focus {
+      background-color: #fff;
+      outline: 0;
+      border: 1px solid $color-primary;
+    }
+  }
+}
