@@ -4,9 +4,26 @@ import { ITaskItem } from '../interfaces';
 import Services from '../Services';
 
 class TodoStore {
-  loader = false;
-
-  tasks: ITaskItem[] = [];
+  tasks: ITaskItem[] = [
+    {
+      id: '111',
+      text: 'delectus aut autem',
+      completed: true,
+      createdAt: '2022-07-29T10:53:48.613Z',
+    },
+    {
+      id: '222',
+      text: 'quis ut nam facilis et officia qui',
+      completed: true,
+      createdAt: '2022-07-29T10:53:48.613Z',
+    },
+    {
+      id: '333',
+      text: 'fugiat veniam minus',
+      completed: false,
+      createdAt: '2022-07-29T10:53:48.613Z',
+    },
+  ];
 
   filter = 'all';
 
@@ -15,40 +32,42 @@ class TodoStore {
   }
 
   async getTasksList() {
-    this.toggleLoader(true);
     const tasks = await Services.getTasksListAction();
-    this.sortTasks(tasks);
-    this.setTasks(tasks);
-    this.toggleLoader(false);
+    if (tasks) {
+      this.sortTasks(tasks);
+      this.setTasks(tasks);
+    }
   }
 
   sortTasks(tasks: ITaskItem[]) {
-    return tasks.sort((a, b) => moment(b.createdAt).diff(a.createdAt));
+    return tasks.length ? tasks.sort((a, b) => moment(b.createdAt).diff(a.createdAt)) : [];
   }
 
   setTasks(tasks: ITaskItem[]) {
     this.tasks = tasks;
   }
 
-  toggleLoader(isLoading: boolean) {
-    this.loader = isLoading;
-  }
-
   addTask(task: ITaskItem) {
     this.tasks.unshift(task);
-    Services.addTaskAction(task).then();
+    if (!Services.localMode) {
+      Services.addTaskAction(task).then();
+    }
   }
 
   deleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
-    Services.deleteTaskAction(id).then();
+    if (!Services.localMode) {
+      Services.deleteTaskAction(id).then();
+    }
   }
 
   completeTask(task: ITaskItem) {
     this.tasks = this.tasks.map((taskItem) =>
       taskItem.id === task.id ? { ...taskItem, completed: !taskItem.completed } : taskItem,
     );
-    Services.completeTasks(task);
+    if (!Services.localMode) {
+      Services.completeTasks(task);
+    }
   }
 
   get allTasks() {

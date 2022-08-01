@@ -1,25 +1,26 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import './TodoList.scss';
-import store from '../../store';
+import TodoStore from '../../store';
+import Services from '../../Services';
 import TodoItem from '../TodoItem/TodoItem';
 const TodoList = observer(() => {
   useEffect(() => {
-    store.getTasksList().then();
+    TodoStore.getTasksList().then();
   }, []);
   return (
     <ul className="todo-list">
-      {store.tasks && store.tasks.length && !store.loader ? (
+      {TodoStore.tasks && TodoStore.tasks.length && !Services.loader ? (
         <>
-          {store.filteredList.map((task) => (
+          {TodoStore.filteredList.map((task) => (
             <TodoItem task={task} key={task.id} />
           ))}
         </>
       ) : (
         ''
       )}
-      {store.loader ? <div className="todo-list__is-empty">Загрузка данных...</div> : ''}
-      {!store.loader && !store.tasks ? (
+      {Services.loader ? <div className="todo-list__is-empty">Загрузка данных...</div> : ''}
+      {!Services.loader && !TodoStore.tasks ? (
         <div className="todo-list__is-empty">Задачи отсутствуют</div>
       ) : (
         ''

@@ -1,0 +1,25 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
+.notifications-view {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  max-width: 300px;
+  width: 100%;
+  color: white;
+  border-radius: 6px;
+  padding: 10px;
+  opacity: 0.8;
+  &__title {
+    font-weight: $font-bold;
+  }
+  &__message {
+    line-height: 20px;
+  }
+  &_error {
+    background-color: $color-error;
+  }
+  &_success {
+    background-color: $color-success;
+  }
+}

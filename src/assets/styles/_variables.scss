@@ -1,3 +1,14 @@
+/* It's a font weights. */
+$font-thin: 100;
+$font-extra-light: 200;
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+$font-extra-bold: 800;
+$font-ultra-bold: 900;
+
 /* It's a breakpoints for responsive design. */
 $xxs: 390px; //$xxs: 320px;
 $xs: 480px;
@@ -13,3 +24,5 @@ $xxxxl: 1440px;
 $color-primary: #76767a;
 $color-secondary: #fff;
 $color-tertiary: #f7d459;
+$color-error: #e54d42;
+$color-success: #4bab43;
