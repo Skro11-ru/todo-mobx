@@ -2,7 +2,7 @@ $black: #363839;
 $lightgray: #9c9e9f;
 $gray: #bdc1c6;
 $white: #fff;
-$green: #06842c;
+$purple: #9589c1;
 
 .checkbox-input {
   &__label {
@@ -43,8 +43,8 @@ $green: #06842c;
     }
     &:checked {
       color: $white;
-      border-color: $green;
-      background: $green;
+      border-color: $purple;
+      background: $purple;
       &::before {
         opacity: 1;
         transition: opacity 0.1s ease-out 0.15s, width 0.1s ease-out 0.3s, height 0.1s ease-out 0.2s;

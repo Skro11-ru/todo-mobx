@@ -9,7 +9,7 @@
     {
       "id": 2,
       "text": "quis ut nam facilis et officia qui",
-      "completed": false,
+      "completed": true,
       "createdAt": "2022-07-29T10:53:48.613Z"
     },
     {
@@ -1197,14 +1197,8 @@
     {
       "id": 200,
       "text": "ipsam aperiam voluptates qui",
-      "completed": false,
+      "completed": true,
       "createdAt": "2022-07-29T10:53:48.613Z"
-    },
-    {
-      "id": "cc9e4b85c7e351g9bvnrl2",
-      "text": "todo",
-      "createdAt": "2022-08-01T05:58:24.674Z",
-      "completed": false
     }
   ]
 }

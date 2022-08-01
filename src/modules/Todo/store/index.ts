@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import moment from 'moment';
 import { ITaskItem } from '../interfaces';
 import Services from '../Services';
 
@@ -16,8 +17,13 @@ class TodoStore {
   async getTasksList() {
     this.toggleLoader(true);
     const tasks = await Services.getTasksListAction();
+    this.sortTasks(tasks);
     this.setTasks(tasks);
     this.toggleLoader(false);
+  }
+
+  sortTasks(tasks: ITaskItem[]) {
+    return tasks.sort((a, b) => moment(b.createdAt).diff(a.createdAt));
   }
 
   setTasks(tasks: ITaskItem[]) {
@@ -29,7 +35,7 @@ class TodoStore {
   }
 
   addTask(task: ITaskItem) {
-    this.tasks.push(task);
+    this.tasks.unshift(task);
     Services.addTaskAction(task).then();
   }
 
