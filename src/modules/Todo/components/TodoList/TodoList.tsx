@@ -19,7 +19,11 @@ const TodoList = observer(() => {
         ''
       )}
       {store.loader ? <div className="todo-list__is-empty">Загрузка данных...</div> : ''}
-      {!store.loader ? <div className="todo-list__is-empty">Задачи отсутствуют</div> : ''}
+      {!store.loader && !store.tasks ? (
+        <div className="todo-list__is-empty">Задачи отсутствуют</div>
+      ) : (
+        ''
+      )}
     </ul>
   );
 });
