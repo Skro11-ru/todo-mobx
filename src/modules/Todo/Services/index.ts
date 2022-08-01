@@ -1,3 +1,4 @@
+import { makeAutoObservable } from 'mobx';
 import api from '../../../server/api';
 import { ITaskItem } from '../interfaces';
 import NotificationsStore from '../../Notifications/store';
@@ -5,6 +6,10 @@ class Services {
   localMode = false;
 
   loader = false;
+
+  constructor() {
+    makeAutoObservable(this);
+  }
 
   toggleLocalMode(isLocal: boolean) {
     this.localMode = isLocal;
@@ -46,49 +51,30 @@ class Services {
   }
 
   addTaskAction(task: ITaskItem) {
-    this.toggleLoader(true);
-    return (
-      api
-        .post('/tasks', task)
-        .then((resp) => {
-          this.toggleLoader(false);
-          return resp;
-        })
-        // eslint-disable-next-line no-console
-        .catch(() => {
-          this.toggleLoader(false);
-        })
-    );
+    return api
+      .post('/tasks', task)
+      .then((resp) => {
+        return resp;
+      })
+      .catch(() => {});
   }
 
   deleteTaskAction(id: string) {
-    this.toggleLoader(true);
-    return (
-      api
-        .delete(`/tasks/${id}`)
-        .then((resp) => {
-          return resp;
-        })
-        // eslint-disable-next-line no-console
-        .catch(() => {
-          this.toggleLoader(true);
-        })
-    );
+    return api
+      .delete(`/tasks/${id}`)
+      .then((resp) => {
+        return resp;
+      })
+      .catch(() => {});
   }
 
   completeTasks(task: ITaskItem) {
-    this.toggleLoader(true);
-    return (
-      api
-        .patch(`/tasks/${task.id}`, { completed: !task.completed })
-        .then((resp) => {
-          return resp;
-        })
-        // eslint-disable-next-line no-console
-        .catch(() => {
-          this.toggleLoader(true);
-        })
-    );
+    return api
+      .patch(`/tasks/${task.id}`, { completed: !task.completed })
+      .then((resp) => {
+        return resp;
+      })
+      .catch(() => {});
   }
 }
 
