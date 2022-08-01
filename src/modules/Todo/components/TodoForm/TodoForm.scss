@@ -7,6 +7,9 @@
     @media (max-width: $md) {
       @include font-title('mobile');
     }
+    @media screen and (max-height: 400px) {
+      font: normal 700 38px/1.4 'Roboto', sans-serif;
+    }
   }
   &__input-container {
     position: relative;
@@ -28,7 +31,9 @@
     border: 1px solid transparent;
     @include transition;
     @include shadow;
-
+    @media screen and (max-height: 400px) {
+      padding: 10px 50px 10px 10px;
+    }
     &::placeholder {
       color: $color-primary;
       opacity: 0.4;

@@ -7,6 +7,9 @@
     justify-content: space-between;
     border-top: 1px dotted rgba($color-primary, 0.5);
     padding: 15px 10px;
+    @media screen and (max-height: 400px) {
+      padding: 5px 10px;
+    }
     span {
       word-break: break-word;
     }
