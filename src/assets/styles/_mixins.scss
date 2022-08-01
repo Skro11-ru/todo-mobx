@@ -1,5 +1,6 @@
 /* A mixin that can be used to set font styles depending on the device type. */
-@mixin font-title-1($device) {
+@mixin font-title($device) {
+  color: $color-secondary;
   @if $device== 'desktop' {
     font: normal 700 48px/1.4 'Roboto', sans-serif;
   }
@@ -8,43 +9,8 @@
   }
 }
 
-@mixin font-title-2($device) {
-  @if $device== 'desktop' {
-    font: normal 400 30px/1.4 'Roboto', sans-serif;
-  }
-  @if $device== 'mobile' {
-    font: normal 400 25px/1.4 'Roboto', sans-serif;
-  }
-}
-
-@mixin font-title-3($device) {
-  @if $device== 'desktop' {
-    font: normal 500 25px/1 'Roboto', sans-serif;
-  }
-  @if $device== 'mobile' {
-    font: normal 500 20px/1 'Roboto', sans-serif;
-  }
-}
-
-@mixin font-title-4($device) {
-  @if $device== 'desktop' {
-    font: normal 500 20px/1.4 'Roboto', sans-serif;
-  }
-  @if $device== 'mobile' {
-    font: normal 500 16px/1.4 'Roboto', sans-serif;
-  }
-}
-
-@mixin font-title-5($device) {
-  @if $device== 'desktop' {
-    font: normal 500 16px/1.4 'Roboto', sans-serif;
-  }
-  @if $device== 'mobile' {
-    font: normal 500 14px/1.4 'Roboto', sans-serif;
-  }
-}
-
 @mixin font-text($device) {
+  color: $color-primary;
   @if $device== 'desktop' {
     font: normal 400 16px/1.4 'Roboto', sans-serif;
   }
@@ -55,22 +21,10 @@
 
 /* Mixin that can be used to create a shadow. */
 @mixin shadow {
-  box-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
+  box-shadow: 0 3px 20px 2px rgb(0 0 0 / 0.3);
 }
 
 /* Mixin that can be used to create a transition. */
 @mixin transition {
   transition: all 0.3s linear;
-}
-
-/* Mixin that can be used to create a link. */
-@mixin link($color) {
-  color: $color;
-  @include transition;
-  &:hover {
-    color: transparentize($color, 0.4);
-  }
-  &:active {
-    color: transparentize($color, 0.7);
-  }
 }

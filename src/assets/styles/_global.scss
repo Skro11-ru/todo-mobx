@@ -1,5 +1,12 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow-y: auto;
+  display: flex;
+  @include font-text('desktop');
+  @media (max-width: $md) {
+    @include font-text('mobile');
+  }
 }
